@@ -1,0 +1,5 @@
+#!/bin/bash
+# the scripst shows listening sockets
+#+ it shows the pid and name of the program to which each socket belongs
+
+sudo netstat -lp
