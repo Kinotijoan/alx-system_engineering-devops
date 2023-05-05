@@ -1,0 +1,15 @@
+#!usr/bin/bash
+#The script displays all active ipv4 ips
+# Get the list of network interfaces on the machine
+interfaces=$(ifconfig -a | grep -oP '^[^[:space:]]+')
+
+# Loop through each interface and get its IPv4 address
+for interface in $interfaces; do
+    ipv4=$(ifconfig $interface | awk '/inet /{print $2}')
+
+    # Check if the IPv4 address is valid (i.e. not empty and not 127.0.0.1)
+    if [[ ! -z "$ipv4" && "$ipv4" != "127.0.0.1" ]]; then
+        echo "$interface: $ipv4"
+    fi
+done
+
