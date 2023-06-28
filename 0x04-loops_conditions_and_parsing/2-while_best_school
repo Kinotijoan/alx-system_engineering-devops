@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# uses while to print best school 10 times
+# displays Best School 10 times
 n=1
 while [ $n -le 10 ];
 do

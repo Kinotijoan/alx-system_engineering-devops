@@ -1,17 +1,14 @@
 #!/usr/bin/env bash
-#loops and conditions
-
-count=1
-while [ $count -le 10 ]
+# displays Best School 10 times
+n=1
+while [ $n -le 10 ];
 do
-if [ $count -eq 4 ]
-    then
-        echo "bad luck"
-elif [ $count -eq 8 ]
-    then
-        echo "good luck"
-else
-    echo "Best School"
-    fi
-    ((count++))
+	if [ $n -eq 4 ]; then
+		echo "bad luck"
+	elif [ $n -eq 8 ]; then
+		echo "good luck"
+	else 
+		echo "Best School"
+	fi
+	(( n++ ))
 done
