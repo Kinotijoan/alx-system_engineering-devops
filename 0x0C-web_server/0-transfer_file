@@ -1,19 +1,22 @@
 #!/usr/bin/env bash
 #copies a file from your local machine to a host machine
 
-if [ $# -lt 3 ];
+if [ $# -lt 4 ];
 then
    echo "Usage: 0-transfer_file PATH_TO_FILE IP USERNAME PATH_TO_SSH_KEY"
    exit 1
 fi
 
-local_file="$1"
-host="$2"
-username="$3"
+path_to_file=$1
+ip_address=$2
+username=$3
+path_to_ssh=$4
 
-if [ -z "$4" ];
+scp -o "StrictHostKeyChecking=no" -i "$path_to_ssh_key" "$path_to_file" "$username@$ip:~/"
+
+if [ $? -eq 0 ]
 then
-    scp -o StrictHostKeyChecking=no "$local_file" "$username@$host":~/
+	echo "FILE WAS TRANSFERED SUCCESSFULLY"
 else
-	scp -i "$4" -o StrictHostKeyChecking=no "$local_file" "$username@$host":~/
+	echo "FILE TRANSFER FAILED"
 fi
