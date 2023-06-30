@@ -1,15 +1,15 @@
 #!/usr/bin/env bash
-# commands to install nginx on webserver
+# installs nginx webserver
 
+#installing nginx
 sudo apt-get update -y
 sudo apt-get install nginx -y
 
 #allowing nginx on firewall
 ufw allow 'Nginx HTTP'
 
-echo "Hello World!" | sudo tee /var/www/html/index.html
+#editing the default html 
+echo "Hello World!" | sudo tee /var/www/html/index.nginx-debian.html
 
-#testing nginx configurations
-sudo nginx -t
-
-sudo service ngix reload
+#start nginx
+sudo service nginx start
