@@ -39,14 +39,14 @@ defaults
   timeout server 15s
   timeout http-request 10s
 
-frontend th3gr00t-tech-frontend
+frontend techgirlie-tech-frontend
     bind *:80
-    default_backend th3gr00t-tech-backend
+    default_backend techgirlie-tech-backend
 
-backend th3gr00t-tech-backend
+backend techgirlie-tech-backend
     balance roundrobin
-    server 80437-web-01 54.157.163.163 check
-    server 80437-web-02 54.236.48.38 check
+    server 03-web-01 54.157.163.163:80 check
+    server 03-web-02 54.236.48.38:80 check
 "
 
 # shellcheck disable=SC2154
